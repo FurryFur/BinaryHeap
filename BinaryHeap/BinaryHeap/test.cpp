@@ -54,32 +54,32 @@ TEST_CASE("Removal Test 1")
 
 TEST_CASE("Removal Test 2")
 {
-	CBinaryHeap<int> heap;
+	CBinaryHeap<float> heap;
 	heap.Insert(3);
-	heap.Insert(6);
+	heap.Insert(6.5);
 	heap.Insert(4);
 	heap.Insert(21);
 	heap.Insert(10);
 	heap.Insert(7);
 	heap.Insert(8);
 
-	int iResult;
-	heap.DeleteMin(iResult);
-	REQUIRE(iResult == 3);
-	REQUIRE(heap.GetMin() == 4);
+	float fResult;
+	heap.DeleteMin(fResult);
+	REQUIRE(fResult == Approx(3));
+	REQUIRE(heap.GetMin() == Approx(4));
 
-	heap.DeleteMin(iResult);
-	REQUIRE(iResult == 4);
-	heap.DeleteMin(iResult);
-	REQUIRE(iResult == 6);
-	heap.DeleteMin(iResult);
-	REQUIRE(iResult == 7);
-	heap.DeleteMin(iResult);
-	REQUIRE(iResult == 8);
-	heap.DeleteMin(iResult);
-	REQUIRE(iResult == 10);
-	heap.DeleteMin(iResult);
-	REQUIRE(iResult == 21);
+	heap.DeleteMin(fResult);
+	REQUIRE(fResult == Approx(4));
+	heap.DeleteMin(fResult);
+	REQUIRE(fResult == Approx(6.5));
+	heap.DeleteMin(fResult);
+	REQUIRE(fResult == Approx(7));
+	heap.DeleteMin(fResult);
+	REQUIRE(fResult == Approx(8));
+	heap.DeleteMin(fResult);
+	REQUIRE(fResult == Approx(10));
+	heap.DeleteMin(fResult);
+	REQUIRE(fResult == Approx(21));
 
 	REQUIRE(heap.IsEmpty());
 	REQUIRE(heap.GetSize() == 0);
